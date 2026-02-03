@@ -34,7 +34,7 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import PersonIcon from "@mui/icons-material/Person";
 
 // Import your logo image - adjust the path based on your assets structure
-import logo from "../../dist/assets/VestalHealthCareNewLogo.png"; // Default path - adjust as needed
+import logo from "../assets/VestalHealthCareNewLogo.png"; // Default path - adjust as needed
 // Alternative paths you might need:
 // import logo from "../assets/images/logo.png";
 // import logo from "../assets/logo.svg";
