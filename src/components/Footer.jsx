@@ -18,15 +18,13 @@ import {
 import { useNavigate } from "react-router-dom";
 
 // Import assets
-import logo from "../assets/new vestal logo.png"; // Import your logo file
+import logo from "../assets/new vestal logo.png";
 
-// Using the provided Unsplash image link
 const footerBg = "https://plus.unsplash.com/premium_photo-1661290203802-e70e01de3a3c?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
 const Footer = () => {
     const navigate = useNavigate();
 
-    // Define quick links with their paths
     const quickLinks = [
         { label: "Home", path: "/" },
         { label: "About Us", path: "/about" },
@@ -34,13 +32,11 @@ const Footer = () => {
         { label: "Contact", path: "/contact" }
     ];
 
-    // Function to handle navigation with scroll to top
     const handleNavigation = (path) => {
         navigate(path);
         window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
-    // Social media links
     const socialLinks = [
         { icon: Facebook, url: "https://facebook.com" },
         { icon: WhatsApp, url: "https://wa.me/your-number" },
@@ -55,51 +51,57 @@ const Footer = () => {
 
     return (
         <Box
-           sx={{
-    position: "relative",
-    backgroundColor: "#0D1B2A",
-    color: "#fff",
-    py: 3,
-    px: { xs: 3, md: 10 },
-    overflow: "hidden",
-    // Combined background image with rgba overlay
-    "&::before": {
-        content: '""',
-        position: "absolute",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        // Linear gradient overlay + background image in one property
-        background: `
-            linear-gradient(
-                rgba(0, 0, 0, 0.85), 
-                rgba(13, 27, 42, 0.85)
-            ),
-            url(${footerBg})
-        `,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        zIndex: 1,
-    },
-}}
->
-    
-
+            sx={{
+                position: "relative",
+                backgroundColor: "#0D1B2A",
+                color: "#fff",
+                py: 3,
+                px: { xs: 3, md: 10 },
+                overflow: "hidden",
+                // Combined background image with rgba overlay
+                "&::before": {
+                    content: '""',
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    // Linear gradient overlay + background image
+                    background: `
+                        linear-gradient(
+                            rgba(0, 0, 0, 0.85), 
+                            rgba(13, 27, 42, 0.85)
+                        ),
+                        url(${footerBg})
+                    `,
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: {
+                        xs: "center", // Center on mobile
+                        md: "center top", // Show top on medium and larger screens
+                        lg: "center top", // Show top on large screens
+                    },
+                    backgroundAttachment: {
+                        xs: "scroll", 
+                        md: "scroll", 
+                    },
+                    zIndex: 1,
+                },
+            }}
+        >
             {/* Footer Content - All content above background overlay */}
             <Grid
                 container
                 spacing={6}
                 sx={{
                     position: "relative",
-                    zIndex: 3, // Above all background layers
+                    zIndex: 3,
                     maxWidth: 1200,
                     mx: "auto",
                 }}
             >
                 {/* Left Section - Logo and About */}
                 <Grid size={{xs:12, md:4}}>
-                    {/* Logo Image */}
                     <Box
                         component="img"
                         src={logo}
