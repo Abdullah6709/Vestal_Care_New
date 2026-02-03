@@ -34,7 +34,7 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import PersonIcon from "@mui/icons-material/Person";
 
 // Import your logo image - adjust the path based on your assets structure
-import logo from "../assets/new vestal logo.png"; // Default path - adjust as needed
+import logo from "../../dist/assets/VestalHealthCareNewLogo.png"; // Default path - adjust as needed
 // Alternative paths you might need:
 // import logo from "../assets/images/logo.png";
 // import logo from "../assets/logo.svg";
@@ -128,52 +128,67 @@ const Navbar = () => {
     return (
         <>
             {/* 🔹 Responsive Top bar */}
-            <Box
-                sx={{
-                    backgroundColor: "#3FB8AF",
-                    color: "#fff",
-                    py: 0.5,
-                    px: { xs: 2, sm: 4, md: 8, lg: 12 },
-                    fontSize: { xs: 12, sm: 13, md: 14 },
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    flexWrap: "wrap",
-                    flexDirection: { xs: "column", sm: "row" },
-                    textAlign: { xs: "center", sm: "left" },
-                    gap: { xs: 0.5, sm: 0 },
-                }}
-            >
-                {/* Contact info */}
-                <Box
-                    sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        flexDirection: { xs: "column", sm: "row" },
-                        gap: { xs: 0.5, sm: 3 },
-                    }}
-                >
-                    <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-                        <LocalPhoneIcon sx={{ fontSize: 16 }} /> 01204099066
-                    </Box>
-                    <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
-                        <EmailIcon sx={{ fontSize: 16 }} /> info@vestalhealth.in
-                    </Box>
-                </Box>
+           <Box
+  sx={{
+    backgroundColor: "#3FB8AF",
+    color: "#fff",
+    py: 0.5,
+    px: { xs: 2, sm: 4, md: 8, lg: 12 },
+    fontSize: { xs: 12, sm: 13, md: 14 },
+  }}
+>
+  {/* Wrapper */}
+  <Box
+    sx={{
+      display: "flex",
+      justifyContent: { xs: "center", sm: "space-between" },
+      alignItems: "center",
+      flexDirection: { xs: "column", sm: "row" },
+      gap: { xs: 0.5, sm: 0 },
+    }}
+  >
+    {/* Contact info */}
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        gap: 2,
+        flexWrap: "wrap",
+        justifyContent: { xs: "center", sm: "flex-start" },
+      }}
+    >
+      <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+        <LocalPhoneIcon sx={{ fontSize: 16 }} />
+      0120-409-9066
+      </Box>
+      <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+        <EmailIcon sx={{ fontSize: 16 }} />
+        info@vestalhealth.in
+      </Box>
+    </Box>
 
-                {/* Social icons */}
-                <Box sx={{ display: "flex", alignItems: "center", gap: 1, mt: { xs: 0.5, sm: 0 } }}>
-                    <IconButton color="inherit" size="small">
-                        <FacebookIcon fontSize="small" />
-                    </IconButton>
-                    <IconButton color="inherit" size="small">
-                        <WhatsAppIcon fontSize="small" />
-                    </IconButton>
-                    <IconButton color="inherit" size="small">
-                        <LinkedInIcon fontSize="small" />
-                    </IconButton>
-                </Box>
-            </Box>
+    {/* Social icons */}
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        gap: 1,
+        mt: { xs: 0.5, sm: 0 },
+      }}
+    >
+      <IconButton color="inherit" size="small">
+        <FacebookIcon fontSize="small" />
+      </IconButton>
+      <IconButton color="inherit" size="small">
+        <WhatsAppIcon fontSize="small" />
+      </IconButton>
+      <IconButton color="inherit" size="small">
+        <LinkedInIcon fontSize="small" />
+      </IconButton>
+    </Box>
+  </Box>
+</Box>
+
 
             {/* 🔹 Main Navbar */}
             <AppBar

@@ -1,20 +1,65 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Box,
     Container,
     Typography,
     Button,
     Grid,
-    Divider
+    Divider,
+    Modal,
+    TextField,
+    IconButton,
+    FormControl,
+    InputLabel,
+    Select,
+    MenuItem,
+    TextareaAutosize
 } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 import image from "../assets/herosection.jpg"
 
 const HeroSection = () => {
+    const [open, setOpen] = useState(false);
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        service: '',
+        message: ''
+    });
+
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Here you would typically send the form data to your backend
+        console.log('Form submitted:', formData);
+        // Reset form and close modal
+        setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            service: '',
+            message: ''
+        });
+        handleClose();
+        alert('Thank you for your inquiry! We will contact you soon.');
+    };
+
     return (
         <Box
             sx={{
                 background: 'linear-gradient(#3FB8AF, #3FB8AF 100%)',
-               minHeight: { xs: '100vh', md: '82vh' },
+                minHeight: { xs: '100vh', md: '82vh' },
                 display: 'flex',
                 alignItems: 'center',
                 position: 'relative',
@@ -36,7 +81,7 @@ const HeroSection = () => {
                         xs: 'none',
                         md: 'polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%)'
                     },
-                    opacity: { xs: 0.5, md: 1 }, // Increased from 0.3 to 0.5
+                    opacity: { xs: 0.5, md: 1 },
                     '&::before': {
                         content: '""',
                         position: 'absolute',
@@ -45,7 +90,7 @@ const HeroSection = () => {
                         right: 0,
                         bottom: 0,
                         background: {
-                            xs: 'linear-gradient(to bottom, rgba(63, 184, 175, 0.4), rgba(63, 184, 175, 0.6))', // Reduced overlay opacity
+                            xs: 'linear-gradient(to bottom, rgba(63, 184, 175, 0.4), rgba(63, 184, 175, 0.6))',
                             md: 'none'
                         }
                     }
@@ -109,6 +154,7 @@ const HeroSection = () => {
                             <Button
                                 variant="contained"
                                 size="large"
+                                onClick={handleOpen}
                                 sx={{
                                     backgroundColor: '#2022bd',
                                     color: 'white',
@@ -139,6 +185,158 @@ const HeroSection = () => {
                     </Grid>
                 </Grid>
             </Container>
+
+            {/* Inquiry Form Modal */}
+            <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="inquiry-form-modal"
+                aria-describedby="inquiry-form-for-home-nursing-services"
+            >
+                <Box
+                    sx={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        width: { xs: '90%', sm: '80%', md: 600 },
+                        bgcolor: 'background.paper',
+                        borderRadius: 2,
+                        boxShadow: 24,
+                        p: { xs: 3, sm: 4 },
+                        maxHeight: '90vh',
+                        overflow: 'auto',
+                    }}
+                >
+                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
+                        <Typography id="inquiry-form-modal" variant="h5" component="h2" sx={{ fontWeight: 600 }}>
+                            Request Vestal Health Care Services
+                        </Typography>
+                        <IconButton onClick={handleClose} size="small">
+                            <CloseIcon />
+                        </IconButton>
+                    </Box>
+
+                    <form onSubmit={handleSubmit}>
+                        <Grid container spacing={3}>
+                            <Grid size={{xs:12, md:6}} >
+                                <TextField
+                                    required
+                                    fullWidth
+                                    label="Full Name"
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                    variant="outlined"
+                                />
+                            </Grid>
+
+                            <Grid size={{xs:12, md:6}}>
+                                <TextField
+                                    required
+                                    fullWidth
+                                    label="Email Address"
+                                    name="email"
+                                    type="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    variant="outlined"
+                                />
+                            </Grid>
+
+                            <Grid size={{xs:12, md:6}}>
+                                <TextField
+                                    required
+                                    fullWidth
+                                    label="Phone Number"
+                                    name="phone"
+                                    value={formData.phone}
+                                    onChange={handleChange}
+                                    variant="outlined"
+                                />
+                            </Grid>
+
+                            <Grid size={{xs:12, md:6}}>
+                                <FormControl fullWidth required>
+                                    <InputLabel>Service Required</InputLabel>
+                                    <Select
+                                        name="service"
+                                        value={formData.service}
+                                        onChange={handleChange}
+                                        label="Service Required"
+                                    >
+                                        <MenuItem value="elderly-care">Elderly Care</MenuItem>
+                                        <MenuItem value="post-operative">Post-operative Care</MenuItem>
+                                        <MenuItem value="chronic-care">Chronic Disease Care</MenuItem>
+                                        <MenuItem value="palliative">Palliative Care</MenuItem>
+                                        <MenuItem value="nursing-visits">Nursing Visits</MenuItem>
+                                        <MenuItem value="not-sure">Not Sure / Need Advice</MenuItem>
+                                    </Select>
+                                </FormControl>
+                            </Grid>
+
+                            <Grid size={{xs:12}}>
+                                <Typography variant="body2" color="text.secondary" gutterBottom>
+                                    Message (Optional)
+                                </Typography>
+                                <TextareaAutosize
+                                    name="message"
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                    minRows={4}
+                                    style={{
+                                        width: '100%',
+                                        padding: '16.5px 14px',
+                                        border: '1px solid rgba(0, 0, 0, 0.23)',
+                                        borderRadius: '4px',
+                                        fontFamily: 'Roboto, sans-serif',
+                                        fontSize: '1rem',
+                                        resize: 'vertical'
+                                    }}
+                                    placeholder="Please provide any additional details about the care needed..."
+                                />
+                            </Grid>
+
+                            <Grid size={{xs:12}}>
+                                <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                                    We'll contact you within 24 hours to discuss your needs and schedule a free consultation.
+                                </Typography>
+                            </Grid>
+
+                            <Grid size={{xs:12}}>
+                                <Box sx={{ display: 'flex', gap: 2, justifyContent: 'flex-end' }}>
+                                    <Button
+                                        onClick={handleClose}
+                                        variant="outlined"
+                                        sx={{
+                                            borderRadius: '30px',
+                                            px: 4,
+                                            textTransform: 'none'
+                                        }}
+                                    >
+                                        Cancel
+                                    </Button>
+                                    <Button
+                                        type="submit"
+                                        variant="contained"
+                                        sx={{
+                                            backgroundColor: '#2022bd',
+                                            borderRadius: '30px',
+                                            px: 4,
+                                            textTransform: 'none',
+                                            '&:hover': {
+                                                backgroundColor: '#4f51ff',
+                                            }
+                                        }}
+                                    >
+                                        Submit Inquiry
+                                    </Button>
+                                </Box>
+                            </Grid>
+                        </Grid>
+                    </form>
+                </Box>
+            </Modal>
         </Box>
     );
 };

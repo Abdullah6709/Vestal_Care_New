@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Box,
   Typography,
@@ -21,6 +22,11 @@ const AboutUs = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const isTablet = useMediaQuery(theme.breakpoints.down("md"));
+  const navigate = useNavigate();
+
+  const handleViewServices = () => {
+    navigate("/services");
+  };
 
   return (
     <Box sx={{ fontFamily: "Poppins, sans-serif", overflowX: "hidden" }}>
@@ -75,7 +81,7 @@ const AboutUs = () => {
                 px: { xs: 1, sm: 0 },
               }}
             >
-              We provide reliable and compassionate home nursing care services.
+              We provide reliable and compassionate healrh care services.
               Your comfort, safety, and well-being are our top priorities. We
               are dedicated to supporting patients and families with
               professional healthcare services in the comfort of their homes.
@@ -95,24 +101,9 @@ const AboutUs = () => {
               }}
             >
               <Button
-                variant="contained"
-                size={isMobile ? "medium" : "large"}
-                sx={{
-                  backgroundColor: "#ECA3C3",
-                  color: "#fff",
-                  "&:hover": { backgroundColor: "#e68bb2" },
-                  borderRadius: "25px",
-                  px: { xs: 3, sm: 4 },
-                  py: { xs: 1, sm: 1.5 },
-                  minWidth: { xs: "100%", sm: "auto" },
-                }}
-              >
-                Schedule Consultation
-              </Button>
-
-              <Button
                 variant="outlined"
                 size={isMobile ? "medium" : "large"}
+                onClick={handleViewServices}
                 sx={{
                   borderColor: "#ECA3C3",
                   color: "#ECA3C3",
@@ -217,9 +208,9 @@ const AboutUs = () => {
         <AboutSection />
       </Box>
 
-      <Box sx={{ py: { xs: 4, sm: 6 } }}>
+      {/* <Box sx={{ py: { xs: 4, sm: 6 } }}>
         <StatsBar />
-      </Box>
+      </Box> */}
 
       {/* Our Value Section */}
       <Box
@@ -428,7 +419,7 @@ const AboutUs = () => {
                     >
                       {service.text}
                     </Typography>
-                    <Button
+                    {/* <Button
                       variant="contained"
                       size={isMobile ? "small" : "medium"}
                       sx={{
@@ -440,7 +431,7 @@ const AboutUs = () => {
                       }}
                     >
                       Learn More →
-                    </Button>
+                    </Button> */}
                   </CardContent>
                 </Card>
               </Grid>

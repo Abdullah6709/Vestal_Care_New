@@ -1,8 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Box, Typography, Button, Container } from "@mui/material";
 import image from "../assets/stethoscope.jpg"
 
 const SpecialOfferSection = () => {
+    const navigate = useNavigate();
+
+    const handleContactClick = () => {
+        navigate("/contact");
+    };
+
     return (
         <Box
             sx={{
@@ -10,11 +17,13 @@ const SpecialOfferSection = () => {
                 backgroundImage: `url(${image})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                py: 5,
+                py: { xs: 4, sm: 5, md: 6 },
+                px: { xs: 2, sm: 3 },
                 color: "#fff",
                 display: "flex",
                 alignItems: "center",
-                justifyContent: "flex-start",
+                justifyContent: { xs: "center", md: "flex-start" },
+                minHeight: { xs: "400px", sm: "450px", md: "300px" },
             }}
         >
             {/* Overlay for dark effect */}
@@ -30,29 +39,42 @@ const SpecialOfferSection = () => {
                 sx={{
                     position: "relative",
                     zIndex: 2,
-                    textAlign: "left",
+                    textAlign: { xs: "center", md: "left" },
                     maxWidth: "700px",
+                    px: { xs: 0, sm: 2 },
                 }}
             >
                 <Typography
-                    variant="h6"
+                    variant="subtitle1"
                     sx={{
                         color: "#f06292",
                         fontWeight: 'bold',
-                        letterSpacing: 1,
-                        mb: 2,
+                        letterSpacing: { xs: 0.5, sm: 1 },
+                        mb: { xs: 1.5, sm: 2 },
                         textTransform: "uppercase",
+                        fontSize: {
+                            xs: "0.875rem",
+                            sm: "1rem",
+                            md: "1.125rem"
+                        }
                     }}
                 >
                     Special Care Services
                 </Typography>
 
                 <Typography
-                    variant="h3"
+                    variant="h2"
                     sx={{
                         fontWeight: 800,
-                        mb: 2,
-                        lineHeight: 1.3,
+                        mb: { xs: 2, sm: 3 },
+                        lineHeight: { xs: 1.2, sm: 1.3, md: 1.4 },
+                        fontSize: {
+                            xs: "1.75rem",
+                            sm: "2.25rem",
+                            md: "2.75rem",
+                            lg: "3rem"
+                        },
+                        px: { xs: 1, sm: 0 }
                     }}
                 >
                     We Protect your health with this simple exam
@@ -61,33 +83,53 @@ const SpecialOfferSection = () => {
                 <Typography
                     variant="body1"
                     sx={{
-                        mb: 4,
+                        mb: { xs: 3, sm: 4 },
                         color: "#e0e0e0",
-                        maxWidth: 500,
+                        maxWidth: { xs: "100%", md: "500px" },
+                        fontSize: {
+                            xs: "0.95rem",
+                            sm: "1rem",
+                            md: "1.1rem"
+                        },
+                        lineHeight: 1.6,
+                        px: { xs: 1, sm: 0 },
+                        mx: { xs: "auto", md: 0 },
+                        textAlign: { xs: "center", md: "left" }
                     }}
                 >
-                    Vestal Nursing Care provides trusted, professional home nursing services focused on comfort,
+                    Vestal Health Care provides trusted, professional home nursing services focused on comfort,
                     safety, and personalized medical support for you and your loved ones.
                 </Typography>
 
-                <Button
-                    variant="contained"
-                    sx={{
-                        backgroundColor: "#e91e63",
-                        color: "#fff",
-                        borderRadius: "10px",
-                        textTransform: "none",
-                        px: 3,
-                        py: 1,
-                        fontWeight: 600,
-                        fontSize: "1rem",
-                        "&:hover": {
-                            backgroundColor: "#d81b60",
-                        },
-                    }}
-                >
-                    Contact Vestal Nursing Care
-                </Button>
+                <Box sx={{ 
+                    textAlign: { xs: "center", md: "left" },
+                    px: { xs: 1, sm: 0 }
+                }}>
+                    <Button
+                        variant="contained"
+                        onClick={handleContactClick}
+                        sx={{
+                            backgroundColor: "#e91e63",
+                            color: "#fff",
+                            borderRadius: "10px",
+                            textTransform: "none",
+                            px: { xs: 2.5, sm: 3 },
+                            py: { xs: 0.75, sm: 1 },
+                            fontWeight: 600,
+                            fontSize: {
+                                xs: "0.875rem",
+                                sm: "0.95rem",
+                                md: "1rem"
+                            },
+                            minWidth: { xs: "220px", sm: "240px" },
+                            "&:hover": {
+                                backgroundColor: "#d81b60",
+                            },
+                        }}
+                    >
+                        Contact Vestal Health Care
+                    </Button>
+                </Box>
             </Container>
         </Box>
     );

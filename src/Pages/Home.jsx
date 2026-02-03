@@ -53,12 +53,12 @@ const Home = () => {
       <AboutCare />
       <AboutSection />
       <OurServiceSection />
-      <StatsBar />
+      {/* <StatsBar /> */}
       <WhyChooseUsSection />
       <SpecialOfferSection />
       <EasyStepsSection />
-      <TestimonialSection />
-      <LatestNewsSection />
+      {/* <TestimonialSection />
+      <LatestNewsSection /> */}
     </>
   );
 };

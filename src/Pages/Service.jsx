@@ -96,7 +96,7 @@ import {
   Assignment,
 } from "@mui/icons-material";
 
-// Updated Service Data with Indian context and pricing in INR
+// Updated Service Data with Indian context and FIXED pricing in INR
 const services = [
   {
     id: 1,
@@ -115,10 +115,12 @@ const services = [
       "Light housekeeping",
     ],
     duration: "8-12 hours per day",
-    price: "₹400-800/day",
+    price: 600, // Fixed price per day in INR
+    priceDisplay: "₹600/day",
     minDays: 7,
     maxDays: 90,
     defaultDays: 15,
+    type: "daily",
   },
   {
     id: 2,
@@ -137,10 +139,12 @@ const services = [
       "Sports injury recovery",
     ],
     duration: "45-60 minutes per session",
-    price: "₹600-1500/session",
+    price: 800, // Fixed price per session in INR
+    priceDisplay: "₹800/session",
     minSessions: 5,
     maxSessions: 30,
     defaultSessions: 10,
+    type: "session",
   },
   {
     id: 3,
@@ -159,10 +163,12 @@ const services = [
       "Chronic disease management",
     ],
     duration: "8-12 hours per day",
-    price: "₹800-1500/day",
+    price: 1200, // Fixed price per day in INR
+    priceDisplay: "₹1,200/day",
     minDays: 7,
     maxDays: 90,
     defaultDays: 15,
+    type: "daily",
   },
   {
     id: 4,
@@ -181,10 +187,12 @@ const services = [
       "Respiratory exercises",
     ],
     duration: "12-24 hours per day",
-    price: "₹1200-2500/day",
+    price: 1800, // Fixed price per day in INR
+    priceDisplay: "₹1,800/day",
     minDays: 7,
     maxDays: 180,
     defaultDays: 30,
+    type: "daily",
   },
   {
     id: 5,
@@ -203,10 +211,12 @@ const services = [
       "Critical care at home",
     ],
     duration: "8-12 hours per day",
-    price: "₹1000-2000/day",
+    price: 1500, // Fixed price per day in INR
+    priceDisplay: "₹1,500/day",
     minDays: 7,
     maxDays: 90,
     defaultDays: 15,
+    type: "daily",
   },
   {
     id: 6,
@@ -225,10 +235,12 @@ const services = [
       "Doctor appointment coordination",
     ],
     duration: "8-12 hours per day",
-    price: "₹600-1200/day",
+    price: 900, // Fixed price per day in INR
+    priceDisplay: "₹900/day",
     minDays: 7,
     maxDays: 365,
     defaultDays: 30,
+    type: "daily",
   },
   {
     id: 7,
@@ -247,10 +259,12 @@ const services = [
       "Weight-bearing guidance",
     ],
     duration: "8-12 hours per day",
-    price: "₹800-1500/day",
+    price: 1100, // Fixed price per day in INR
+    priceDisplay: "₹1,100/day",
     minDays: 7,
     maxDays: 90,
     defaultDays: 15,
+    type: "daily",
   },
   {
     id: 8,
@@ -269,10 +283,12 @@ const services = [
       "Nutrition guidance for mother",
     ],
     duration: "8-12 hours per day",
-    price: "₹800-1500/day",
+    price: 1200, // Fixed price per day in INR
+    priceDisplay: "₹1,200/day",
     minDays: 15,
     maxDays: 90,
     defaultDays: 30,
+    type: "daily",
   },
   {
     id: 9,
@@ -291,10 +307,12 @@ const services = [
       "Medication management",
     ],
     duration: "12-24 hours per day",
-    price: "₹1500-3000/day",
+    price: 2200, // Fixed price per day in INR
+    priceDisplay: "₹2,200/day",
     minDays: 7,
     maxDays: 180,
     defaultDays: 30,
+    type: "daily",
   },
 ];
 
@@ -388,6 +406,7 @@ const ServicePage = () => {
   });
 
   const steps = ['Select Duration', 'Patient Details', 'Review & Confirm'];
+  const tollFreeNumber = "0120-409-9066"; // Updated toll-free number
 
   const handleServiceClick = (service) => {
     setSelectedService(service);
@@ -447,15 +466,7 @@ const ServicePage = () => {
 
   const calculateTotalAmount = (service, duration) => {
     if (!service) return 0;
-    
-    const priceMatch = service.price.match(/₹(\d+)-(\d+)/);
-    if (!priceMatch) return 0;
-    
-    const minPrice = parseInt(priceMatch[1]);
-    const maxPrice = parseInt(priceMatch[2]);
-    const avgPrice = Math.round((minPrice + maxPrice) / 2);
-    
-    return avgPrice * duration;
+    return service.price * duration;
   };
 
   const handleDurationChange = (event, newValue) => {
@@ -608,7 +619,7 @@ const ServicePage = () => {
               }}
             >
               <CurrencyRupee fontSize="small" />
-              {service.price.split('₹')[1]}
+              {service.priceDisplay.split('₹')[1]}
             </Typography>
           </Box>
         </CardContent>
@@ -678,7 +689,7 @@ const ServicePage = () => {
                     />
                     <Chip
                       icon={<CurrencyRupee />}
-                      label={selectedService?.price}
+                      label={selectedService?.priceDisplay}
                       size="small"
                       variant="outlined"
                       color="primary"
@@ -695,7 +706,7 @@ const ServicePage = () => {
                   Select Duration:
                 </Typography>
                 <Typography variant="body1" fontWeight="bold" color="#2E7D32">
-                  {bookingForm.duration} {selectedService?.title.includes("Physiotherapy") ? "sessions" : "days"}
+                  {bookingForm.duration} {selectedService?.type === "session" ? "sessions" : "days"}
                 </Typography>
               </Box>
               
@@ -703,7 +714,7 @@ const ServicePage = () => {
                 value={bookingForm.duration}
                 onChange={handleDurationChange}
                 valueLabelDisplay="auto"
-                valueLabelFormat={(value) => `${value} ${selectedService?.title.includes("Physiotherapy") ? "sessions" : "days"}`}
+                valueLabelFormat={(value) => `${value} ${selectedService?.type === "session" ? "sessions" : "days"}`}
                 min={selectedService?.minDays || selectedService?.minSessions || 1}
                 max={selectedService?.maxDays || selectedService?.maxSessions || 90}
                 step={1}
@@ -764,7 +775,7 @@ const ServicePage = () => {
                   }}
                 />
                 <Typography variant="body1" fontWeight="bold" color="#1A5F7A">
-                  {selectedService?.title.includes("Physiotherapy") ? "sessions" : "days"}
+                  {selectedService?.type === "session" ? "sessions" : "days"}
                 </Typography>
               </Box>
             </Box>
@@ -777,11 +788,11 @@ const ServicePage = () => {
               <Grid container spacing={2}>
                 <Grid size={{ xs: 6 }}>
                   <Typography variant="body2" color="text.secondary">
-                    Daily Rate
+                    {selectedService?.type === "session" ? "Per Session Rate" : "Daily Rate"}
                   </Typography>
                   <Typography variant="h6" color="#1A5F7A" fontWeight="bold" sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
                     <CurrencyRupee fontSize="small" />
-                    {selectedService?.price.split('₹')[1]}
+                    {selectedService?.priceDisplay.split('₹')[1]}
                   </Typography>
                 </Grid>
                 <Grid size={{ xs: 6 }}>
@@ -789,7 +800,7 @@ const ServicePage = () => {
                     Selected Duration
                   </Typography>
                   <Typography variant="h6" color="#1A5F7A" fontWeight="bold" align="right">
-                    {bookingForm.duration} {selectedService?.title.includes("Physiotherapy") ? "sessions" : "days"}
+                    {bookingForm.duration} {selectedService?.type === "session" ? "sessions" : "days"}
                   </Typography>
                 </Grid>
                 <Grid size={{ xs: 12 }}>
@@ -1128,7 +1139,7 @@ const ServicePage = () => {
                 <Grid size={{ xs: 12, sm: 6 }}>
                   <Typography variant="body2" color="text.secondary">Duration</Typography>
                   <Typography variant="body1" fontWeight="bold">
-                    {bookingForm.duration} {selectedService?.title.includes("Physiotherapy") ? "sessions" : "days"}
+                    {bookingForm.duration} {selectedService?.type === "session" ? "sessions" : "days"}
                   </Typography>
                 </Grid>
                 <Grid size={{ xs: 12, sm: 6 }}>
@@ -1203,7 +1214,7 @@ const ServicePage = () => {
                     {bookingForm.totalAmount.toLocaleString('en-IN')}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-                    Total amount for {bookingForm.duration} {selectedService?.title.includes("Physiotherapy") ? "sessions" : "days"}
+                    Total amount for {bookingForm.duration} {selectedService?.type === "session" ? "sessions" : "days"}
                   </Typography>
                 </Box>
               </Box>
@@ -1267,7 +1278,7 @@ const ServicePage = () => {
             mt: 2,
           }}
         >
-          Professional Nursing Care at Your Doorstep
+          Professional Health Care at Your Doorstep
         </Typography>
         <Typography
           variant="body1"
@@ -1519,7 +1530,7 @@ const ServicePage = () => {
                       fontSize: { xs: "0.875rem", sm: "0.9rem" },
                     }}
                   >
-                    No Hidden Charges
+                    Fixed Rates - No Hidden Charges
                   </Typography>
                 </Box>
               </Box>
@@ -1530,7 +1541,7 @@ const ServicePage = () => {
                   lineHeight: 1.7
                 }}
               >
-                Clear pricing with detailed invoices. We help with insurance claims and offer flexible payment options including UPI, credit cards, and cash payments.
+                Clear fixed pricing with detailed invoices. No price fluctuations. We help with insurance claims and offer flexible payment options including UPI, credit cards, and cash payments.
               </Typography>
             </Paper>
           </Grid>
@@ -1590,7 +1601,7 @@ const ServicePage = () => {
                       fontSize: { xs: "0.875rem", sm: "0.9rem" },
                     }}
                   >
-                    Multilingual Support
+                    Toll-Free: {tollFreeNumber}
                   </Typography>
                 </Box>
               </Box>
@@ -1601,7 +1612,7 @@ const ServicePage = () => {
                   lineHeight: 1.7
                 }}
               >
-                Round-the-clock assistance in Hindi, English, and regional languages. Emergency services available across all major Indian cities with quick response times.
+                Round-the-clock assistance with toll-free support in Hindi, English, and regional languages. Emergency services available across all major Indian cities with quick response times.
               </Typography>
             </Paper>
           </Grid>
@@ -1787,7 +1798,7 @@ const ServicePage = () => {
       </Box>
 
       {/* Contact CTA */}
-      <Paper
+       <Paper
         sx={{
           p: { xs: 4, sm: 5, md: 6 },
           textAlign: "center",
@@ -1866,9 +1877,9 @@ const ServicePage = () => {
               transition: "all 0.3s",
               boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
             }}
-            onClick={() => (window.location.href = "tel:+01204099066")}
+            onClick={() => (window.location.href = "tel: 0120-409-9066")}
           >
-            Call Toll-Free: 01204099066
+            Call Toll-Free : 0120-409-9066
           </Button>
           <Button
             variant="outlined"
@@ -2082,11 +2093,11 @@ const ServicePage = () => {
                     </Box>
                     <Box sx={{ textAlign: "right" }}>
                       <Typography variant="body2" color="text.secondary">
-                        Price Range
+                        Fixed Price
                       </Typography>
                       <Typography variant="h6" color="#1A5F7A" fontWeight="bold" sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
                         <CurrencyRupee fontSize="small" />
-                        {selectedService.price.split('₹')[1]}
+                        {selectedService.priceDisplay.split('₹')[1]}
                       </Typography>
                     </Box>
                   </Box>
@@ -2200,9 +2211,9 @@ const ServicePage = () => {
                       },
                       justifyContent: "flex-start",
                     }}
-                    onClick={() => (window.location.href = "tel:01204099066")}
+                    onClick={() => (window.location.href = `tel:${tollFreeNumber.replace(/-/g, "")}`)}
                   >
-                    Call: 01204099066
+                    Toll-Free: {tollFreeNumber}
                   </Button>
                 </Grid>
                 <Grid size={{ xs: 12, sm: 6 }}>

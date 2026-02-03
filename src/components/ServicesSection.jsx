@@ -40,14 +40,14 @@ const OurServiceSection = () => {
                     mb: 2,
                 }}
             >
-                Compassionate nursing care<br /> you can trust at home
+                Compassionate health care<br /> you can trust at home
             </Typography>
 
             <Typography
                 variant="body1"
                 sx={{ color: "#666", maxWidth: 700, mx: "auto", mb: 6 }}
             >
-                Vestal Nursing Care delivers reliable, professional, and personalized healthcare services at home, ensuring comfort, dignity, and peace of mind for every patient.
+                Vestal Health Care delivers reliable, professional, and personalized healthcare services at home, ensuring comfort, dignity, and peace of mind for every patient.
             </Typography>
 
             <Grid container spacing={4} justifyContent="center">
@@ -85,7 +85,7 @@ const OurServiceSection = () => {
                                 >
                                     {service.desc}
                                 </Typography>
-                                <Button
+                                {/* <Button
                                     variant="contained"
                                     sx={{
                                         backgroundColor: "#E91E63",
@@ -97,7 +97,7 @@ const OurServiceSection = () => {
                                     }}
                                 >
                                     Learn More
-                                </Button>
+                                </Button> */}
                             </CardContent>
                         </Card>
                     </Grid>
