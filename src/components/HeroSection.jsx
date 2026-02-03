@@ -8,43 +8,59 @@ import {
     Divider
 } from '@mui/material';
 import image from "../assets/herosection.jpg"
+
 const HeroSection = () => {
     return (
         <Box
             sx={{
-                background: 'linear-gradient( #3FB8AF, #3FB8AF 100%)',
-                minHeight: '100vh',
+                background: 'linear-gradient(#3FB8AF, #3FB8AF 100%)',
+               minHeight: { xs: '100vh', md: '82vh' },
                 display: 'flex',
                 alignItems: 'center',
                 position: 'relative',
                 overflow: 'hidden',
             }}
         >
-            {/* Background Pattern */}
+            {/* Background Image Container for all screen sizes */}
             <Box
                 sx={{
                     position: 'absolute',
                     top: 0,
                     right: 0,
-                    width: '50%',
+                    width: { xs: '100%', md: '50%' },
                     height: '100%',
                     background: `url(${image})`,
                     backgroundSize: 'cover',
-                    backgroundPosition: 'right',
-                    clipPath: 'polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%)',
-                    display: { xs: 'none', md: 'block', sm: 'block' },
+                    backgroundPosition: { xs: 'center', md: 'right' },
+                    clipPath: {
+                        xs: 'none',
+                        md: 'polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%)'
+                    },
+                    opacity: { xs: 0.5, md: 1 }, // Increased from 0.3 to 0.5
+                    '&::before': {
+                        content: '""',
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        background: {
+                            xs: 'linear-gradient(to bottom, rgba(63, 184, 175, 0.4), rgba(63, 184, 175, 0.6))', // Reduced overlay opacity
+                            md: 'none'
+                        }
+                    }
                 }}
             />
 
             <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
                 <Grid container spacing={4} alignItems="center">
                     {/* Left Content */}
-                    <Grid size={{xs:12, md:6}} >
+                    <Grid item xs={12} md={6}>
                         <Box>
                             <Typography
                                 variant="h1"
                                 sx={{
-                                    fontSize: { xs: '2.8rem', md: '3.5rem', lg: '4.2rem' },
+                                    fontSize: { xs: '2.5rem', sm: '2.8rem', md: '3.5rem', lg: '4.2rem' },
                                     fontWeight: 700,
                                     lineHeight: 1.1,
                                     color: 'white',
@@ -69,7 +85,7 @@ const HeroSection = () => {
                                 variant="h6"
                                 sx={{
                                     color: 'rgba(255,255,255,0.9)',
-                                    fontSize: '1.1rem',
+                                    fontSize: { xs: '1rem', sm: '1.1rem' },
                                     lineHeight: 1.6,
                                     mb: 4,
                                     fontWeight: 400,
@@ -77,8 +93,8 @@ const HeroSection = () => {
                                     maxWidth: '500px',
                                 }}
                             >
-                               We provide professional home nursing care with compassion, comfort
-                               and reliability, Our trained caregivers ensure quality healthcare services in the comfort of your home.
+                                We provide professional home nursing care with compassion, comfort
+                                and reliability, Our trained caregivers ensure quality healthcare services in the comfort of your home.
                             </Typography>
 
                             <Divider
@@ -96,9 +112,9 @@ const HeroSection = () => {
                                 sx={{
                                     backgroundColor: '#2022bd',
                                     color: 'white',
-                                    px: 6,
+                                    px: { xs: 4, sm: 6 },
                                     py: 1.8,
-                                    fontSize: '1.1rem',
+                                    fontSize: { xs: '1rem', sm: '1.1rem' },
                                     fontWeight: 600,
                                     borderRadius: '30px',
                                     textTransform: 'none',
@@ -117,8 +133,8 @@ const HeroSection = () => {
                         </Box>
                     </Grid>
 
-                    {/* Right Side - Empty for background image */}
-                    <Grid size={{xs:12, md:6}}>
+                    {/* Right Side - Empty for background image on desktop */}
+                    <Grid item xs={12} md={6}>
                         {/* Background image handled by absolute positioned box */}
                     </Grid>
                 </Grid>

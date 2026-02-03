@@ -283,7 +283,7 @@ const Footer = () => {
                                     textShadow: "1px 1px 2px rgba(0,0,0,0.3)",
                                 }}
                             >
-                                B-38, Sector 64, Noida
+                               1201 A, 12th floor, Tower T3, NX One, Greater Noida west . Corporate office
                             </Typography>
                         </Box>
                         <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
