@@ -1901,7 +1901,7 @@ const ServicePage = () => {
               borderRadius: "50px",
               transition: "all 0.3s",
             }}
-            onClick={() => window.open("https://wa.me/919876543210", "_blank")}
+            onClick={() => window.open("https://wa.me/+919599062557", "_blank")}
           >
             WhatsApp Us
           </Button>
@@ -2230,7 +2230,7 @@ const ServicePage = () => {
                       },
                       justifyContent: "flex-start",
                     }}
-                    onClick={() => window.open("https://wa.me/919876543210", "_blank")}
+                    onClick={() => window.open("https://wa.me/+919599062557", "_blank")}
                   >
                     WhatsApp Support
                   </Button>
