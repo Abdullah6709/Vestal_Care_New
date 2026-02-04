@@ -74,7 +74,7 @@ const WhyChooseUsSection = () => {
                                 mb: 1
                             }}
                         >
-                            Why Choose Vestal Health Care
+                            Why Choose Vestal Healthcare
                         </Typography>
 
                         <Typography

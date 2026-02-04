@@ -67,7 +67,7 @@ const EasyStepsSection = () => {
                             lineHeight: 1.7,
                         }}
                     >
-                        Vestal Health Care makes it easy to access professional nursing services at home,
+                        Vestal Healthcare makes it easy to access professional nursing services at home,
                         ensuring comfort, safety, and personalized healthcare support for every patient.
                     </Typography>
 

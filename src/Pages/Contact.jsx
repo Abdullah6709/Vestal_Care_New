@@ -131,7 +131,7 @@ const Contact = () => {
                                 lineHeight: { xs: 1.3, sm: 1.4, md: 1.5 },
                             }}
                         >
-                            Get in Touch with Vestal Health Care
+                            Get in Touch with Vestal Healthcare
                         </Typography>
 
                         <Typography
@@ -150,7 +150,7 @@ const Contact = () => {
                                 lineHeight: { xs: 1.4, md: 1.6 },
                             }}
                         >
-                            Trusted Home Health Care Support, Just a Call Away
+                            Trusted Home Healthcare Support, Just a Call Away
                         </Typography>
 
                         <Typography
@@ -169,7 +169,7 @@ const Contact = () => {
                                 color: "#555",
                             }}
                         >
-                            At Vestal Health Care, we understand that every patient's needs are unique.
+                            At Vestal Healthcare, we understand that every patient's needs are unique.
                             Whether you require 24/7 nursing assistance, post-surgical care, elderly support,
                             or chronic condition management, our experienced nursing team is here to help.
                             Contact us today to receive personalized home healthcare in a safe and comfortable environment.
@@ -287,7 +287,7 @@ const Contact = () => {
                                     fontSize: { xs: "0.75rem", sm: "0.875rem", md: "1rem" }
                                 }}
                             >
-                                Contact Vestal Nursing Care
+                                Contact Vestal Healthcare
                             </Typography>
 
                             <Typography
@@ -322,7 +322,7 @@ const Contact = () => {
                                     lineHeight: 1.6
                                 }}
                             >
-                                Reach out to Vestal Health Care for reliable, professional,
+                                Reach out to Vestal Healthcare for reliable, professional,
                                 and compassionate home nursing services tailored to your family's needs.
                             </Typography>
 
@@ -478,8 +478,7 @@ const Contact = () => {
                                                 },
                                                 lineHeight: 1.4
                                             }}>
-                                                Mon - Sun
-                                                <br />
+                                               
                                                 24*7
                                             </Typography>
                                         </Box>
@@ -488,35 +487,7 @@ const Contact = () => {
                             </Grid>
 
                             {/* Social Icons */}
-                            <Box>
-                                <Typography variant="subtitle1" sx={{ 
-                                    fontWeight: 600, 
-                                    mb: 1,
-                                    fontSize: { xs: "0.875rem", sm: "1rem" }
-                                }}>
-                                    Connect with us on social media
-                                </Typography>
-                                <Box>
-                                    {[Facebook, WhatsApp, LinkedIn].map((Icon, i) => (
-                                        <IconButton
-                                            key={i}
-                                            sx={{
-                                                color: "#3FB8AF",
-                                                backgroundColor: "#E0F7F5",
-                                                mr: 1,
-                                                "&:hover": {
-                                                    backgroundColor: "#3FB8AF",
-                                                    color: "#fff",
-                                                },
-                                                width: { xs: 36, sm: 40 },
-                                                height: { xs: 36, sm: 40 }
-                                            }}
-                                        >
-                                            <Icon fontSize={i === 1 ? "medium" : "small"} />
-                                        </IconButton>
-                                    ))}
-                                </Box>
-                            </Box>
+                            
                         </Grid>
 
                         {/* RIGHT SIDE - CONTACT FORM */}

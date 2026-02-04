@@ -97,7 +97,7 @@ const SpecialOfferSection = () => {
                         textAlign: { xs: "center", md: "left" }
                     }}
                 >
-                    Vestal Health Care provides trusted, professional home nursing services focused on comfort,
+                    Vestal Healthcare provides trusted, professional home nursing services focused on comfort,
                     safety, and personalized medical support for you and your loved ones.
                 </Typography>
 
@@ -127,7 +127,7 @@ const SpecialOfferSection = () => {
                             },
                         }}
                     >
-                        Contact Vestal Health Care
+                        Contact Vestal Healthcare
                     </Button>
                 </Box>
             </Container>

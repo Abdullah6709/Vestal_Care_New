@@ -114,9 +114,8 @@ const services = [
       "Companionship and emotional support",
       "Light housekeeping",
     ],
-    duration: "8-12 hours per day",
     price: 600, // Fixed price per day in INR
-    priceDisplay: "₹600/day",
+    priceDisplay: "600",
     minDays: 7,
     maxDays: 90,
     defaultDays: 15,
@@ -138,9 +137,9 @@ const services = [
       "Geriatric physiotherapy",
       "Sports injury recovery",
     ],
-    duration: "45-60 minutes per session",
+   
     price: 800, // Fixed price per session in INR
-    priceDisplay: "₹800/session",
+    priceDisplay: "800",
     minSessions: 5,
     maxSessions: 30,
     defaultSessions: 10,
@@ -162,9 +161,9 @@ const services = [
       "Post-operative care",
       "Chronic disease management",
     ],
-    duration: "8-12 hours per day",
+   
     price: 1200, // Fixed price per day in INR
-    priceDisplay: "₹1,200/day",
+    priceDisplay: "1,200",
     minDays: 7,
     maxDays: 90,
     defaultDays: 15,
@@ -186,9 +185,9 @@ const services = [
       "Feeding and nutrition support",
       "Respiratory exercises",
     ],
-    duration: "12-24 hours per day",
+   
     price: 1800, // Fixed price per day in INR
-    priceDisplay: "₹1,800/day",
+    priceDisplay: "1,800",
     minDays: 7,
     maxDays: 180,
     defaultDays: 30,
@@ -210,9 +209,9 @@ const services = [
       "Diabetic care and management",
       "Critical care at home",
     ],
-    duration: "8-12 hours per day",
+   
     price: 1500, // Fixed price per day in INR
-    priceDisplay: "₹1,500/day",
+    priceDisplay: "1,500",
     minDays: 7,
     maxDays: 90,
     defaultDays: 15,
@@ -234,9 +233,9 @@ const services = [
       "Health monitoring",
       "Doctor appointment coordination",
     ],
-    duration: "8-12 hours per day",
+    
     price: 900, // Fixed price per day in INR
-    priceDisplay: "₹900/day",
+    priceDisplay: "900",
     minDays: 7,
     maxDays: 365,
     defaultDays: 30,
@@ -258,9 +257,9 @@ const services = [
       "Cast and brace care",
       "Weight-bearing guidance",
     ],
-    duration: "8-12 hours per day",
+   
     price: 1100, // Fixed price per day in INR
-    priceDisplay: "₹1,100/day",
+    priceDisplay: "1,100",
     minDays: 7,
     maxDays: 90,
     defaultDays: 15,
@@ -282,9 +281,9 @@ const services = [
       "Umbilical cord care",
       "Nutrition guidance for mother",
     ],
-    duration: "8-12 hours per day",
+    
     price: 1200, // Fixed price per day in INR
-    priceDisplay: "₹1,200/day",
+    priceDisplay: "1,200",
     minDays: 15,
     maxDays: 90,
     defaultDays: 30,
@@ -306,9 +305,9 @@ const services = [
       "Palliative care",
       "Medication management",
     ],
-    duration: "12-24 hours per day",
+    
     price: 2200, // Fixed price per day in INR
-    priceDisplay: "₹2,200/day",
+    priceDisplay: "2,200",
     minDays: 7,
     maxDays: 180,
     defaultDays: 30,
@@ -354,17 +353,13 @@ const faqs = [
   {
     question: "How quickly can services start?",
     answer:
-      "We can typically start services within 12-24 hours in metro cities and 24-48 hours in other cities, depending on your specific needs.",
+      "We can typically start services within 12-24 hours in Delhi, NCR cities.",
   },
-  {
-    question: "Do you accept insurance claims?",
-    answer:
-      "Yes, we work with most major health insurance providers in India including Star Health, HDFC Ergo, ICICI Lombard, and others. We provide all necessary documents for insurance claims.",
-  },
+ 
   {
     question: "What cities do you serve?",
     answer:
-      "We currently serve in Delhi NCR, Mumbai, Bangalore, Chennai, Hyderabad, Kolkata, Pune, Ahmedabad, and other major cities across India.",
+      "We currently serve in Delhi NCR cities in India.",
   },
   {
     question: "Can I change the caregiver if not satisfied?",
@@ -500,152 +495,163 @@ const ServicePage = () => {
   };
 
   const ServiceCard = ({ service }) => (
-    <Fade in={true} timeout={1000}>
-      <Card
-        sx={{
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          transition: "transform 0.3s, box-shadow 0.3s",
-          "&:hover": {
-            transform: "translateY(-8px)",
-            boxShadow: "0 12px 20px rgba(0,0,0,0.1)",
-          },
-          border: "1px solid #e0e0e0",
-          borderRadius: "12px",
-          overflow: "hidden",
-        }}
-      >
-        <CardMedia
-          component="img"
-          height="200"
-          image={service.image}
-          alt={service.title}
-          sx={{ objectFit: "cover" }}
-        />
-        <CardContent sx={{ flexGrow: 1, p: { xs: 2, sm: 3 } }}>
-          <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-            <Avatar 
-              sx={{ 
-                bgcolor: "#2E7D32", 
-                mr: 2,
-                width: { xs: 40, sm: 48 },
-                height: { xs: 40, sm: 48 }
-              }}
-            >
-              {service.icon}
-            </Avatar>
-            <Typography
-              variant="h6"
-              component="h3"
-              fontWeight="bold"
-              sx={{ 
-                fontSize: { xs: "1rem", sm: "1.1rem", md: "1.25rem" },
-                color: "#1A5F7A"
-              }}
-            >
-              {service.title}
-            </Typography>
-          </Box>
-          <Typography
-            color="text.secondary"
-            paragraph
+  <Fade in={true} timeout={1000}>
+    <Card
+      sx={{
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        transition: "transform 0.3s, box-shadow 0.3s",
+        "&:hover": {
+          transform: "translateY(-8px)",
+          boxShadow: "0 12px 20px rgba(0,0,0,0.1)",
+        },
+        border: "1px solid #e0e0e0",
+        borderRadius: "12px",
+        overflow: "hidden",
+      }}
+    >
+      <CardMedia
+        component="img"
+        height="200"
+        image={service.image}
+        alt={service.title}
+        sx={{ objectFit: "cover" }}
+      />
+      <CardContent sx={{ flexGrow: 1, p: { xs: 2, sm: 3 } }}>
+        <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+          <Avatar 
             sx={{ 
-              fontSize: { xs: "0.875rem", sm: "0.9rem", md: "1rem" },
-              lineHeight: 1.6
+              bgcolor: "#2E7D32", 
+              mr: 2,
+              width: { xs: 40, sm: 48 },
+              height: { xs: 40, sm: 48 }
             }}
           >
-            {service.description}
+            {service.icon}
+          </Avatar>
+          <Typography
+            variant="h6"
+            component="h3"
+            fontWeight="bold"
+            sx={{ 
+              fontSize: { xs: "1rem", sm: "1.1rem", md: "1.25rem" },
+              color: "#1A5F7A"
+            }}
+          >
+            {service.title}
           </Typography>
-          <Divider sx={{ my: 2 }} />
-          <List dense sx={{ mb: 2 }}>
-            {service.features.map((feature, index) => (
-              <ListItem key={index} disablePadding sx={{ mb: 1 }}>
-                <ListItemIcon sx={{ minWidth: { xs: 30, sm: 36 } }}>
-                  <CheckCircle sx={{ color: "#2E7D32" }} fontSize="small" />
-                </ListItemIcon>
-                <ListItemText
-                  primary={feature}
-                  primaryTypographyProps={{
-                    variant: "body2",
-                    sx: {
-                      fontSize: {
-                        xs: "0.75rem",
-                        sm: "0.8125rem",
-                        md: "0.875rem",
-                      },
+        </Box>
+        <Typography
+          color="text.secondary"
+          paragraph
+          sx={{ 
+            fontSize: { xs: "0.875rem", sm: "0.9rem", md: "1rem" },
+            lineHeight: 1.6
+          }}
+        >
+          {service.description}
+        </Typography>
+        <Divider sx={{ my: 2 }} />
+        <List dense sx={{ mb: 2 }}>
+          {service.features.map((feature, index) => (
+            <ListItem key={index} disablePadding sx={{ mb: 1 }}>
+              <ListItemIcon sx={{ minWidth: { xs: 30, sm: 36 } }}>
+                <CheckCircle sx={{ color: "#2E7D32" }} fontSize="small" />
+              </ListItemIcon>
+              <ListItemText
+                primary={feature}
+                primaryTypographyProps={{
+                  variant: "body2",
+                  sx: {
+                    fontSize: {
+                      xs: "0.75rem",
+                      sm: "0.8125rem",
+                      md: "0.875rem",
                     },
-                  }}
-                />
-              </ListItem>
-            ))}
-          </List>
-          <Box
-            sx={{
-              mt: "auto",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              flexWrap: "wrap",
-              gap: 1,
-              backgroundColor: "#F8F9FA",
-              p: 2,
-              borderRadius: "8px",
-              mx: -2,
-              mb: -2,
-              mt: 2,
-            }}
-          >
-            <Chip
-              icon={<Schedule fontSize="small" />}
-              label={service.duration}
-              color="primary"
-              variant="outlined"
-              size="small"
-              sx={{ 
-                fontSize: { xs: "0.7rem", sm: "0.75rem", md: "0.875rem" },
-                fontWeight: 500
-              }}
-            />
+                  },
+                }}
+              />
+            </ListItem>
+          ))}
+        </List>
+        {/* Price Display - Centered with star as superscript */}
+        <Box
+          sx={{
+            mt: "auto",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: "#F8F9FA",
+            p: 2,
+            borderRadius: "8px",
+            mx: -2,
+            mb: -2,
+            mt: 2,
+            position: "relative",
+          }}
+        >
+          <Box sx={{ textAlign: "center", position: "relative" }}>
+            {/* Star symbol as superscript */}
             <Typography
-              variant="h6"
+              component="span"
+              sx={{
+                position: "absolute",
+                top: "-4px",
+                right: "-10px",
+                fontSize: { xs: "0.75rem", sm: "0.875rem", md: "1rem" },
+                color: "#1A5F7A",
+                fontWeight: "bold",
+              }}
+            >
+              *
+            </Typography>
+            
+            {/* Price with Rupee symbol */}
+            <Typography
+              variant="h5"
               color="#1A5F7A"
               fontWeight="bold"
               sx={{ 
-                fontSize: { xs: "1rem", sm: "1.1rem", md: "1.25rem" },
+                fontSize: { xs: "1.25rem", sm: "1.5rem", md: "1.75rem" },
                 display: "flex",
                 alignItems: "center",
-                gap: 0.5
+                justifyContent: "center",
+                gap: 0.5,
               }}
             >
-              <CurrencyRupee fontSize="small" />
-              {service.priceDisplay.split('₹')[1]}
+              <CurrencyRupee fontSize="medium" />
+              {/* Remove the * from priceDisplay since we're adding it as superscript */}
+              {service.priceDisplay.replace('*', '')}
             </Typography>
+            
+          
           </Box>
-        </CardContent>
-        <Box sx={{ p: 2, pt: 0 }}>
-          <Button
-            fullWidth
-            variant="contained"
-            size={isMobile ? "medium" : "large"}
-            onClick={() => handleServiceClick(service)}
-            sx={{
-              py: isMobile ? 1 : 1.5,
-              fontSize: { xs: "0.875rem", sm: "0.9rem", md: "1rem" },
-              backgroundColor: "#1A5F7A",
-              "&:hover": {
-                backgroundColor: "#15455A",
-              },
-              fontWeight: "bold",
-              borderRadius: "8px",
-            }}
-          >
-            Book Service
-          </Button>
         </Box>
-      </Card>
-    </Fade>
-  );
+      </CardContent>
+      <Box sx={{ p: 2, pt: 0 }}>
+        <Button
+          fullWidth
+          variant="contained"
+          size={isMobile ? "medium" : "large"}
+          onClick={() => handleServiceClick(service)}
+          sx={{
+            py: isMobile ? 1 : 1.5,
+            fontSize: { xs: "0.875rem", sm: "0.9rem", md: "1rem" },
+            backgroundColor: "#1A5F7A",
+            "&:hover": {
+              backgroundColor: "#15455A",
+            },
+            fontWeight: "bold",
+            borderRadius: "8px",
+          }}
+        >
+          Book Service
+        </Button>
+      </Box>
+    </Card>
+  </Fade>
+);
 
   const renderStepContent = (step) => {
     switch (step) {
@@ -681,12 +687,6 @@ const ServicePage = () => {
                     {selectedService?.description}
                   </Typography>
                   <Box sx={{ display: "flex", gap: 2, mt: 1, flexWrap: "wrap" }}>
-                    <Chip
-                      icon={<Schedule />}
-                      label={selectedService?.duration}
-                      size="small"
-                      variant="outlined"
-                    />
                     <Chip
                       icon={<CurrencyRupee />}
                       label={selectedService?.priceDisplay}
@@ -792,7 +792,7 @@ const ServicePage = () => {
                   </Typography>
                   <Typography variant="h6" color="#1A5F7A" fontWeight="bold" sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
                     <CurrencyRupee fontSize="small" />
-                    {selectedService?.priceDisplay.split('₹')[1]}
+                    {selectedService?.priceDisplay}
                   </Typography>
                 </Grid>
                 <Grid size={{ xs: 6 }}>
@@ -1137,6 +1137,12 @@ const ServicePage = () => {
                   <Typography variant="body1" fontWeight="bold">{selectedService?.title}</Typography>
                 </Grid>
                 <Grid size={{ xs: 12, sm: 6 }}>
+                  <Typography variant="body2" color="text.secondary">Price</Typography>
+                  <Typography variant="body1" fontWeight="bold">
+                    {selectedService?.priceDisplay}
+                  </Typography>
+                </Grid>
+                <Grid size={{ xs: 12, sm: 6 }}>
                   <Typography variant="body2" color="text.secondary">Duration</Typography>
                   <Typography variant="body1" fontWeight="bold">
                     {bookingForm.duration} {selectedService?.type === "session" ? "sessions" : "days"}
@@ -1236,16 +1242,18 @@ const ServicePage = () => {
   };
 
   return (
+    <Box sx={{ backgroundColor: "#f0f7ff",}}>
     <Container
       maxWidth="lg"
       sx={{ 
         py: { xs: 3, sm: 4, md: 6 }, 
         px: { xs: 2, sm: 3, md: 4 },
-        backgroundColor: "#FFFFFF"
+        // backgroundColor: "#FFFFFF"
       }}
     >
       {/* Hero Section */}
       <Box sx={{ 
+        
         textAlign: "center", 
         mb: { xs: 4, sm: 6, md: 8 },
         p: { xs: 3, sm: 4, md: 5 },
@@ -1256,7 +1264,7 @@ const ServicePage = () => {
           gutterBottom
           sx={{
             fontWeight: "bold",
-            background: "linear-gradient(45deg, #1A5F7A, #2E7D32)",
+            background: "#2c3e50",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             fontSize: { xs: "1.75rem", sm: "2.5rem", md: "3rem", lg: "3.5rem" },
@@ -2085,19 +2093,11 @@ const ServicePage = () => {
                   <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                     <Box>
                       <Typography variant="body2" color="text.secondary">
-                        Service Duration
-                      </Typography>
-                      <Typography variant="body1" fontWeight="bold">
-                        {selectedService.duration}
-                      </Typography>
-                    </Box>
-                    <Box sx={{ textAlign: "right" }}>
-                      <Typography variant="body2" color="text.secondary">
-                        Fixed Price
+                        Price
                       </Typography>
                       <Typography variant="h6" color="#1A5F7A" fontWeight="bold" sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
                         <CurrencyRupee fontSize="small" />
-                        {selectedService.priceDisplay.split('₹')[1]}
+                        {selectedService.priceDisplay}
                       </Typography>
                     </Box>
                   </Box>
@@ -2241,6 +2241,7 @@ const ServicePage = () => {
         </Box>
       </Dialog>
     </Container>
+    </Box>
   );
 };
 

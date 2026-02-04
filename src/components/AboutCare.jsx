@@ -24,7 +24,7 @@ const AboutSection = () => {
   useEffect(() => {
     if (isInView) {
       let start = 0;
-      const end = 15;
+      const end = 14;
       const duration = 2000; // 2 seconds
       const stepTime = 20;
       const increment = end / (duration / stepTime);
@@ -164,7 +164,7 @@ const AboutSection = () => {
                 variant="subtitle2"
                 sx={{ color: "#E91E63", fontWeight: "bold", mb: 1 }}
               >
-                ABOUT VESTAL HEALTH CARE
+                ABOUT VESTAL HEALTHCARE
               </Typography>
 
               <Typography
@@ -176,14 +176,14 @@ const AboutSection = () => {
                   color: "#111",
                 }}
               >
-                Compassionate health care for your loved ones
+                Compassionate healthcare for your loved ones
               </Typography>
 
               <Typography
                 variant="body1"
                 sx={{ color: "#666", mb: 3, lineHeight: 1.8 }}
               >
-                At Vestal Health Care, we provide professional, compassionate
+                At Vestal Healthcare, we provide professional, compassionate
                 nursing services tailored to meet the unique needs of each
                 patient. Our team of licensed nurses and caregivers is dedicated
                 to ensuring the highest quality of care in the comfort of your
@@ -191,14 +191,9 @@ const AboutSection = () => {
                 respect, and personalized attention.
               </Typography>
 
-              <FormControlLabel
-                control={<Checkbox defaultChecked sx={{ color: "#3FB8AF" }} />}
-                label={
-                  <Typography sx={{ fontWeight: "bold" }}>
-                    Committed to your health and well-being.
-                  </Typography>
-                }
-              />
+              <Typography sx={{ fontWeight: "bold" }}>
+                Committed to your health and well-being.
+              </Typography>
 
               {/* <Box sx={{ mt: 4 }}>
                 <Button

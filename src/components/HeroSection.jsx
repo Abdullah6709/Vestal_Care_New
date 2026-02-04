@@ -59,7 +59,7 @@ const HeroSection = () => {
         <Box
             sx={{
                 background: 'linear-gradient(#3FB8AF, #3FB8AF 100%)',
-                minHeight: { xs: '100vh', md: '82vh' },
+                minHeight: { xs: '100vh', md: '85vh' },
                 display: 'flex',
                 alignItems: 'center',
                 position: 'relative',
@@ -210,7 +210,7 @@ const HeroSection = () => {
                 >
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
                         <Typography id="inquiry-form-modal" variant="h5" component="h2" sx={{ fontWeight: 600 }}>
-                            Request Vestal Health Care Services
+                            Request Vestal Healthcare Services
                         </Typography>
                         <IconButton onClick={handleClose} size="small">
                             <CloseIcon />

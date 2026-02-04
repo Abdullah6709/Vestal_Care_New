@@ -33,7 +33,7 @@ const AboutUs = () => {
       {/* Banner Section */}
       <Box
         sx={{
-          backgroundColor: "#f8f9fa",
+          backgroundColor: "#f0f7ff",
           width: "100%",
           py: { xs: 6, sm: 8, md: 10, lg: 12 },
           px: { xs: 2, sm: 3, md: 4 },
@@ -62,7 +62,7 @@ const AboutUs = () => {
             <Typography
               variant={isMobile ? "body1" : "h6"}
               sx={{
-                color: "#ECA3C3",
+                color: "#E91E63",
                 fontWeight: 600,
                 mb: 3,
               }}
@@ -105,8 +105,8 @@ const AboutUs = () => {
                 size={isMobile ? "medium" : "large"}
                 onClick={handleViewServices}
                 sx={{
-                  borderColor: "#ECA3C3",
-                  color: "#ECA3C3",
+                  borderColor: "#E91E63",
+                  color: "#E91E63",
                   "&:hover": {
                     borderColor: "#e68bb2",
                     backgroundColor: "rgba(236, 163, 195, 0.1)",

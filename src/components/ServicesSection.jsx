@@ -40,14 +40,14 @@ const OurServiceSection = () => {
                     mb: 2,
                 }}
             >
-                Compassionate health care<br /> you can trust at home
+                Compassionate healthcare<br /> you can trust at home
             </Typography>
 
             <Typography
                 variant="body1"
                 sx={{ color: "#666", maxWidth: 700, mx: "auto", mb: 6 }}
             >
-                Vestal Health Care delivers reliable, professional, and personalized healthcare services at home, ensuring comfort, dignity, and peace of mind for every patient.
+                Vestal Healthcare delivers reliable, professional, and personalized healthcare services at home, ensuring comfort, dignity, and peace of mind for every patient.
             </Typography>
 
             <Grid container spacing={4} justifyContent="center">
