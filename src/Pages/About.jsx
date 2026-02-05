@@ -81,14 +81,13 @@ const AboutUs = () => {
                 px: { xs: 1, sm: 0 },
               }}
             >
-              We provide reliable and compassionate healrh care services.
-              Your comfort, safety, and well-being are our top priorities. We
-              are dedicated to supporting patients and families with
-              professional healthcare services in the comfort of their homes.
-              Our experienced nurses and caregivers deliver personalized care to
-              ensure quality treatment, emotional support, and peace of mind. We
-              focus on trust, affordability, and excellence in every service we
-              provide
+              We provide reliable and compassionate healrh care services. Your
+              comfort, safety, and well-being are our top priorities. We are
+              dedicated to supporting patients and families with professional
+              healthcare services in the comfort of their homes. Our experienced
+              nurses and caregivers deliver personalized care to ensure quality
+              treatment, emotional support, and peace of mind. We focus on
+              trust, affordability, and excellence in every service we provide
             </Typography>
 
             <Box

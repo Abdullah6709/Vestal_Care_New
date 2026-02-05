@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Grid, Typography, Stack, Divider } from "@mui/material";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
-import image from "../assets/portrait-of-young-asian-smiling-female-nurse-working-on-laptop-in-private-clinic-positive-emotional-3.jpg"
+import image from "../assets/new phone.png"
 import image2 from "../assets/health-insurance-service-young-asian-caregiver-nurse-examine-senior-man-or-woman-patient-at-home-1-e1714026481357.jpg"
 
 const steps = [
@@ -28,7 +28,7 @@ const EasyStepsSection = () => {
         <Box
             sx={{
                 py: 5,
-                px: { xs: 2, sm: 3, md: 5 },
+                px: { xs: 2, sm: 3, md: 10 },
                 backgroundColor: "#fff"
             }}
         >

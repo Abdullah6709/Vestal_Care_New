@@ -3,7 +3,7 @@ import PublicRouter from "./routes/PublicRouter";
 import Home from "../Pages/Home";
 import About from "../Pages/About";
 import Contact from "../Pages/Contact";
-import Services from "../Pages/Service";
+import ServicePage from "../Pages/Service/ServicePage";
 const routers = createBrowserRouter([
     {
         path: "/",
@@ -16,7 +16,7 @@ const routers = createBrowserRouter([
             // { path: "employer", element: <Employer /> },
             // { path: "ites", element: <Ites /> },
             // { path: "login", element: <Login /> },
-            { path: "services", element: <Services /> },
+            { path: "services", element: <ServicePage /> },
             // { path: "services/:id", element: <ServiceDetails /> },
         ],
     },
